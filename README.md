@@ -26,3 +26,25 @@ python manage.py runserver
 **访问主页**
 http://localhost:8000/list
 * * *
+#### 界面展示
+**系统首页**
+![image](https://github.com/HawkinYap/CertificateConsultingandDecision-master/blob/master/system_fig/system_show6.png)
+***注册前仅可查看三类证书信息，注册并登陆后可显示完整系统功能***
+**证书介绍**
+![image](https://github.com/HawkinYap/CertificateConsultingandDecision-master/blob/master/system_fig/system_show4.png)
+***展示证书基本信息：***
+**考证心得汇总**
+![image](https://github.com/HawkinYap/CertificateConsultingandDecision-master/blob/master/system_fig/system_show7.png)
+***展示所有权限用户的考证心得，并展示热度心得推荐列表与最新心得列表***
+**个人主页**
+![image](https://github.com/HawkinYap/CertificateConsultingandDecision-master/blob/master/system_fig/system_show5.png)
+***个人主页为用户提供更改个人信息、文章管理、试题上传、证书图片上传、考证决策功能***
+**考证决策**
+个性化决策
+![image](https://github.com/HawkinYap/CertificateConsultingandDecision-master/blob/master/system_fig/system_show2.png)
+***设计考证决策辅助问卷，对800名大学生进行问卷调查，了解其考证的选择、备考、考证动机等因素，综合学生数据，利用层次分析法（AHP）对问卷问题进行权重处理，用户想要考取某个证书前，可通过填写问卷并查看得分意见的方式，做出考证决策***
+VS决策
+![image](https://github.com/HawkinYap/CertificateConsultingandDecision-master/blob/master/system_fig/system_show3.png)
+***利用两个证书的参数对比来辅助用户做出考证决策***
+### 附件
+系统文档请查看： document/document.pdf
