@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}blog titles{% endblock %}
+{% block content %}
+<!--job start here-->
+<div class="about-banner">
+	   <div class="container">
+	      	 <div class="about-main">
+<div class="row text-center vertical-middle-sm">
+    <h3>联系我们</h3>
+    <p>如果您对我们的系统有什么建议，请写在下方表单中。我们将根据您的建议做出适当修改。</p>
+    <p>因为有您，我们会越变越好！</p>
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+         <div class="form-group">
+            <label  class="col-md-5 control-label">姓名</label>
+            <div class="col-md-6 text-left">{{ form.user }}</div>
+        </div>
+        <div class="form-group">
+            <label  class="col-md-5 control-label">标题</label>
+            <div class="col-md-6 text-left">{{ form.title }}</div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-5 control-label">内容</label>
+            <div class="col-md-6 text-left">{{ form.body }}</div>
+        </div>
+        <input type="submit" class="btn btn-primary btn-lg" value="SUBMIT">
+    </form>
+</div>
+             </div>
+       </div>
+</div>
+{% endblock %}

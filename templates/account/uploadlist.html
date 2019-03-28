@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}download{% endblock %}
+{% block content %}
+<div class="about-banner">
+    <div class="container">
+        <div class="about-main">
+        <table class="table table-hover">
+    	<tr>
+    	    <td>标题</td>
+            <td>下载</td>
+    	</tr>
+    	{% for file in files %}
+    	<tr>
+    	    <td><a href="{{ file.file.url }}"><p>{{ file.name }}</p></a></td>
+    	    <td><a href="javascript:" onclick="upload(this,'{{ file.file }}')"><i class="lnr lnr-download" ></i></a></td>
+
+    	</tr>
+    	{% endfor %}
+    </table>
+       </div>
+</div>
+    <script type="text/javascript" src='{% static "js/jquery.js" %}'></script>
+    <script type="text/javascript" src="{% static 'js/layer.js'%}"></script>
+    <script>
+    function upload(the,file){
+        layer.open({
+	        type: 1,
+	        skin: "layui-layer-rim",
+	        area: ["400px", "200px"],
+	        title: "确认下载",
+	        content:  '<div class="text-center" style="margin-top:20px"><p>是否下载此试题</p></div>',
+	        btn:['确定', '取消'],
+	        yes: function(){
+		        $.ajax({
+		        url: '{% url "account:download_file" %}',
+		        type:"POST",
+		        data: {"file":file},
+		        success: function(e){
+			        if(e=="1"){
+			            layer.msg("成功");
+			        }else{
+			            layer.msg("失败");
+			        }
+		        },
+		        })
+	        },
+	    });
+    }
+    </script>
+{% endblock %}

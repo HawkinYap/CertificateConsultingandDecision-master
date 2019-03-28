@@ -1,0 +1,78 @@
+﻿{% extends "base.html" %}
+{% block title %}blog titles{% endblock %}
+{% block content %}
+<!--job start here-->
+<div class="jobs">
+    <div class="container">
+        <div class="jobs-main">
+            <h3> Certificate Lists</h3>
+            <div class="job-top">
+                <div class="col-md-8 job-left">
+                    <h4> Search For A Certificate</h4>
+                </div>
+                <div class="col-md-4 job-right">
+                    <form method="get" action="/list/search/">
+                        {% csrf_token %}
+                        <input type="text" name="q" placeholder="Certificate Name or English Name"  required>
+                        <input type="submit" value="">
+                    </form>
+
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="about-tab-main">
+            <div class="sap_tabs">
+            <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+            <div class="job-bottom">
+                <ul class="resp-tabs-list">
+                    <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>职业类证书</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>能力类证书</span></li>
+                    <li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>基础证书</span></li>
+                    <div class="clearfix"></div>
+                </ul>
+                <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                    {% for list in lists %}
+                        {% if list.cert_class == 2 %}
+                            <div class="col-md-3 job-column">
+                                <ul>
+                                    <li><a href="{{ list.cert_id }}">{{ list.cert_name }}</a></li>
+                                </ul>
+                            </div>
+
+                        {% endif %}
+                    {% endfor %}
+                     <div class="clearfix"> </div>
+                </div>
+                <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                    {% for list in lists %}
+                        {% if list.cert_class == 3 %}
+                            <div class="col-md-3 job-column">
+                                <ul>
+                                    <li><a href="{{ list.cert_id }}">{{ list.cert_name }}</a></li>
+                                </ul>
+                            </div>
+
+                        {% endif %}
+                    {% endfor %}
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
+                    {% for list in lists %}
+                        {% if list.cert_class == 1 %}
+                            <div class="col-md-3 job-column">
+                                <ul>
+                                    <li><a href="{{ list.cert_id }}">{{ list.cert_name }}</a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"> </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

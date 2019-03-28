@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}blog article{% endblock %}
+{% block content %}
+<div class="about-banner">
+    <div class="container">
+        <div class="about-main">
+            <h2> {{ result.cert_name }}</h2>
+            <div class="col-md-8 col-md-offset-2 about-left">
+                <h3>英文简称</h3>
+                <p>{{ result.cert_ename }}</p>
+            </div>
+            <div class="col-md-8 col-md-offset-2 about-left">
+                <h3>证书内容</h3>
+                <p>{{ result.cert_content }}</p>
+            </div>
+            <div class="col-md-8 col-md-offset-2 about-left">
+                <h3>考证时间</h3>
+                <p>{{ result.cert_time }}</p>
+            </div>
+            <div class="col-md-8 col-md-offset-2 about-left">
+                <h3>证书质量</h3>
+                <p>{{ result.cert_qualif }}</p>
+            </div>
+            <div class="col-md-8 col-md-offset-2 about-left">
+                <h3>相关证书</h3>
+                <p>{{ result.cert_relate }}</p>
+            </div>
+            <div class="col-md-8 col-md-offset-2 about-left">
+                <h3>证书链接</h3>
+                <p><a href="{{ result.cert_link }}">{{ result.cert_link }}</a></p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

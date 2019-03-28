@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<div class="header-b">
+    <div class="container">
+        <div class="header-main">
+            <div class="logo">
+                <a href="index.html"><img src="{% static 'images/cethelp_w.png' %}" alt=""></a>
+            </div>
+            <span class="menu"> <img src="{% static 'images/icon.png' %}"> </span>
+            <div class="header-navg">
+                <ul class="res">
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'list:cert_list' %}">主 页</a></li>
+                    <li><a href="{% url 'article:article_titles' %}">经验分享</a></li>
+                    <li><a href="{% url 'image:falls_images' %}">晒证书</a></li>
+                    <li><a href="{% url 'account:show_file' %}">试题下载</a></li>
+                    <li><a href="{% url 'account:introduce' %}">我的空间</a></li>
+                    <li><a href="{% url 'account:user_logout' %}">LOGOUT({{ user.username }})</a></li>
+                    {% else %}
+                    <li style="float:right"><a href="{% url 'account:user_login' %}">LOGIN</a></li>
+                    {% endif %}
+                </ul>
+                <script>
+                    $( "span.menu").click(function() {
+                        $(  "ul.res" ).slideToggle("slow", function() {
+                            // Animation complete.
+                        });
+                    });
+                </script>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

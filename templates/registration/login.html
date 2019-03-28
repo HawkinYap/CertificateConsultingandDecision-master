@@ -1,0 +1,25 @@
+{% extends "account/base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="sign-in-w3ls">
+        <div class="alert-close1"> </div>
+        <h3>Sign In</h3>
+        <form action="{% url 'account:user_login' %}" method="post">
+            {% csrf_token %}
+            <div class="col-md-6 text-left ">{{ form.username }}</div>
+            <div class="col-md-6 text-left ">{{ form.password }}</div>
+            <ul class="check">
+                <li>
+                    <input type="checkbox" id="brand1" value="">
+                    <label for="brand1"><a href="{% url 'account:user_register' %}">Register</a></label>
+                </li>
+            </ul>
+            <a href="{% url 'account:password_reset' %}">Forgot Password?</a><br>
+            <div class="clear"></div>
+            <input type="submit" value="Sign In">
+        </form>
+    </div>
+    <div class="clear"></div>
+</div>
+{% endblock %}

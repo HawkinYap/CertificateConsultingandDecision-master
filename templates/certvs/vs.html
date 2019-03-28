@@ -1,0 +1,102 @@
+{% extends "base1.html" %}
+{% load staticfiles %}
+
+{% block title %}images{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/layer.css' %}">
+<div class="main-content">
+<div class="container-fluid">
+<h3 class="page-title">权衡证书选择——先VS一下吧！</h3>
+<div id="toastr-demo" class="panel">
+<div class="panel-body">
+<div class="row">
+    <div class="col-lg-1"></div>
+<form method="get" action=".">
+{% csrf_token %}
+<input type="text" name="a" class="col-lg-3" placeholder="证书名称 如：计算机二级" required>
+    <div class="col-md-1" style="font-size:30px"><span> &nbsp;&nbsp;VS</span></div>
+<input type="text" name="b" class="col-lg-3" placeholder="证书名称 如：计算机软件水平与资格考试" required>
+<input type="submit" value="Submit">
+</form>
+</div>
+{% if result1 and result2%}
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 text-right"><span>证书名称：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result1.cert_name }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考试难度：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result1.cert_dif }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>证书性质：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result1.cert_quality}}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考证条件：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result1.cert_condition }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考证时间：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result1.cert_time }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考证费用：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result1.cert_cost }}</span></div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 text-right"><span>证书名称：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result2.cert_name }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考试难度：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result2.cert_dif }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>证书性质：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result2.cert_quality}}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考证条件：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result2.cert_condition }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考证时间：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result2.cert_time }}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-right"><span>考证费用：</span></div>
+                <div class="col-md-8 text-left"><span>{{ result2.cert_cost }}</span></div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endif %}
+</div>
+</form>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/layer.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.slimscroll.min.js' %}"></script>
+
+
+{% endblock %}
+

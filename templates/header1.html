@@ -1,0 +1,76 @@
+{% load staticfiles %}
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html"><img src="{% static 'images/cethelp.png' %}" alt="Klorofil Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+            </div>
+            <form class="navbar-form navbar-left" method="get" action="/list/search/">
+                <div class="input-group">
+                    {% csrf_token %}
+                    <input type="text" name="q" class="form-control" placeholder="证书名称 如：英语四级" required>
+                    <span class="input-group-btn"><button class="btn btn-primary">Go</button></span>
+                </div>
+            </form>
+            <div class="navbar-btn navbar-btn-right">
+                <a class="btn btn-success update-pro" href="{% url 'list:cert_list' %}" title="Upgrade to Pro" ><span>GO BACK TO HOME</span></a>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-rocket"></i> <span>反馈</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'contract:contract' %}">联系我们</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{% static 'images/user.png' %}" class="img-circle" alt="Avatar"> <span>{{ user.username }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'account:password_change' %}"><i class="lnr lnr-user"></i> <span>更改密码</span></a></li>
+                            <li><a href="{% url 'account:user_logout' %}"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li style="float:right"><a href="{% url 'account:user_login' %}">LOGIN</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="{% url 'account:introduce' %}" class=""><i class="lnr lnr-home"></i> <span>系统说明</span></a></li>
+                    <li>
+                        <a href="#subPage" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>论坛管理</span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPage" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="{% url 'article:article_column' %}" class="">栏目管理</a></li>
+                                <li><a href="{% url 'article:article_post' %}" class="">文章发布</a></li>
+                                <li><a href="{% url 'article:article_list' %}" class="">文章列表</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                     <li><a href="{% url 'account:upload_file' %}" class=""><i class="lnr lnr-upload"></i> <span>试题上传</span></a></li>
+                    <li><a href="{% url 'image:list_images' %}" class=""><i class="lnr lnr-chart-bars"></i> <span>证书图库</span></a></li>
+                    <li>
+                        <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>考证决策</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="{% url 'certvs:getvs' %}" class="">VS决策</a></li>
+                                <li><a href="{% url 'account:special' %}" class="">个性化决策</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'account:my_information' %}" class=""><i class="lnr lnr-dice"></i> <span>个人信息</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>

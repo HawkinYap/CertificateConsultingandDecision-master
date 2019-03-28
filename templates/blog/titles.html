@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}blog titles{% endblock %}
+{% block content %}
+<div class="about-banner">
+    <div class="container">
+        <div class="about-main">
+<div class="row">
+	<div class="col-xs-6 col-md-offset-1">
+		<ul>
+			{% for blog in blogs %}
+			<li><a href="{{ blog.id }}" style="font-size:18px">{{ blog.title }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="col-xs-4 col-md-2">
+		<img width="180px" src="{% static 'images/share.jpg' %}">
+	</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src='{% static "js/jquery.js" %}'></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+{% endblock %}

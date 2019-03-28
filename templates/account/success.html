@@ -1,0 +1,17 @@
+{% extends 'base1.html' %}
+{% block title %}my information{% endblock %}
+{% block content %}
+<div class="main-content">
+<div class="container-fluid">
+<div id="toastr-demo" class="panel">
+<div class="panel-body">
+<div class="row text-center vertical-middle-sm">
+    <h1>Successful!!!!</h1>
+    <p>Back to<a href="{% url 'account:introduce' %}">我的空间</a>or go to <a href="{% url 'account:show_file' %}">试题下载</a></p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

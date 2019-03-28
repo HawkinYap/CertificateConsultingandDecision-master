@@ -1,0 +1,27 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+{% block title %}my information{% endblock %}
+{% block content %}
+<div class="main-content">
+<div class="container-fluid">
+<div id="toastr-demo" class="panel">
+<div class="panel-body">
+<div class="row text-center vertical-middle-sm">
+    <h1>Upload Images</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="img">
+                <div ><button class="btn btn-primary btn-md" type="submit">upload my photo</button></div>
+        </form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/layer.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.slimscroll.min.js' %}"></script>
+{% endblock %}

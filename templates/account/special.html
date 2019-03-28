@@ -1,0 +1,488 @@
+{% extends "base1.html" %}
+{% load staticfiles %}
+
+{% block title %}images{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/layer.css' %}">
+<div class="main-content">
+<div class="container-fluid">
+<h3 class="page-title">看看自己是否适合考这个证书吧</h3>
+<div id="toastr-demo" class="panel">
+<div class="panel-body">
+
+
+    <div class="row">
+        <div class="col-lg-3">
+			<input type="text" id="name1" class="form-control" placeholder="证书名称">
+		</div>
+	</div>
+    <div class="row" style="margin-top:10px">
+        <div class="col-lg-3">
+		<select id="test">
+			<option value="a">基本证书类</option>
+			<option value="b">职业证书类</option>
+			<option value="c">能力证书类</option>
+		</select>
+        </div>
+    </div>
+    <hr>
+
+    <h3>基本问题</h3>
+    <!-- 问题1 -->
+    <h4 style="margin-top:30px">1.您所填写的证书是否与您的专业相关？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios1" id="1A" value="10" >A.是
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios1" id="1B" value="8">B.否
+	</label>
+    </div>
+
+    <!-- 问题2 -->
+    <h4>2.您想考取此证书的目的是？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios2" id="2A" value="8" >A.为了更好的找到工作
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios2" id="2B" value="8">B.为了提高自己的知识技能
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios2" id="2C" value="5">C.受到周围同学的影响
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios2" id="2D" value="3">D.老师的推荐或家长的要求
+	</label>
+    </div>
+
+    <!-- 问题3 -->
+    <h4>3.您考取此证预计的准备时间是多久？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios3" id="3A" value="0" >A.一周
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios3" id="3B" value="1">B.半个月
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios3" id="3C" value="3">C.一至两个月
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios3" id="3D" value="2">D.两个月以上
+	</label>
+    </div>
+
+    <!-- 问题4 -->
+    <h4>4.您毕业后的打算是？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios4" id="4A" value="4" >A.读研
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios4" id="4B" value="4">B.就业
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios4" id="4C" value="3">C.出国留学
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios4" id="4D" value="3">D.考公务员
+	</label>
+    </div>
+
+    <!-- 问题5 -->
+    <h4>5.您所在的年级是？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios5" id="5A" value="1">A.大一
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios5" id="5B" value="2">B.大二
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios5" id="5C" value="2">C.大三
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios5" id="5D" value="1">D.大四
+	</label>
+    </div>
+
+
+    <h3>学习能力问题</h3>
+    <!-- 问题6 -->
+    <h4 style="margin-top:30px">6.您的成绩在专业中排名大概处于</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios7" id="6A" value="2" >A.上游
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios6" id="6B" value="2">B.中上游
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios6" id="6C" value="1" >C.中游
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios6" id="6D" value="1">D.中下游
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios6" id="6E" value="0">E.下游
+	</label>
+    </div>
+
+
+    <!-- 问题7 -->
+    <h4>7.您是否参加过竞赛获省级奖项或参与项目？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios7" id="7A" value="3" >A.是
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios7" id="7B" value="1">B.否
+	</label>
+    </div>
+
+    <!-- 问题8 -->
+    <h4>8.您认为自己的学习效率怎么样？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios8" id="8A" value="5">A.高
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios8" id="8B" value="3">B.一般
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios8" id="8C" value="2">C.低
+	</label>
+    </div>
+
+    <!-- 问题9 -->
+    <h4>9.下列与考证有关的能力中您觉得自己具备哪些能力，您的分数段是？</h4>
+    <h5 style="margin-top:10px">1.时间规划能力（3分） 2.记忆力（3分） 3.理解能力（4分）
+4.学习能力（4分） 5.沟通和获取信息的能力（1分）6.坚持不懈的精神和勤奋的态度（2分）</h5>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios9" id="9A" value="5" >A.0-2分
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios9" id="9B" value="7">B.3-6分
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios9" id="9C" value="10">C.7-10分
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios9" id="9D" value="12">D.11-14分
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios9" id="9E" value="16">E.14分以上
+	</label>
+    </div>
+
+    <!-- 问题10 -->
+    <h4>10.您是如何确定考试的准备时间的？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios10" id="10A" value="9" >A.时间越多越好
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios10" id="10B" value="6">B.根据考试的难度确定
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios10" id="10C" value="4">C.每次都选取固定的备考时间
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios10" id="10D" value="2">D.参考其他同学的时间而定
+	</label>
+    </div>
+
+    <h3>考证经验类问题</h3>
+    <!-- 问题11 -->
+    <h4 style="margin-top:30px">11.您考取的证书中有几个没有一次通过</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios11" id="11A" value="2" >A.都是一次通过
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios11" id="11B" value="2">B.1-2个没有一次通过
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios11" id="11C" value="1" >C.3-4个没有一次通过
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios11" id="11D" value="0">D.基本都没一次通过
+	</label>
+    </div>
+
+    <h4>12.除基础证书外，您考取的证书有多少与专业相关？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios12" id="12A" value="6" >A.0
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios12" id="12B" value="10">B.占少数
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios12" id="12C" value="12">C.一半
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios12" id="12D" value="12">D.占多数
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios12" id="12E" value="8">E.全部
+	</label>
+    </div>
+
+    <h4>13.您考证成功的原因最主要有：</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios13" id="13A" value="3" >A.对教材内容理解充分
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios13" id="13B" value="6">B.通过刷题不断积累知识
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios13" id="13C" value="5">C.心态好，临场发挥能力强
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios13" id="13D" value="5">D.有充裕的备考时间
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios13" id="13E" value="4">E.有较好的学习方法和学习效率
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios13" id="13F" value="4">F.通过和前辈们交流获得宝贵的考证经验
+	</label>
+    </div>
+
+    <h4>14.您考证失败的原因最主要有：</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios14" id="14A" value="3">A.忽略了对教材的重要性
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios14" id="14B" value="6">B.没有认真刷题
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios14" id="14C" value="4">C.考试太过紧张，没有发挥好
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios14" id="14D" value="4">D.备考时间太紧，准备不足
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios14" id="14E" value="5">E.学习方法不当
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios14" id="14F" value="3">F.完全按照自己理解去备考，未曾询问他人意见
+	</label>
+    </div>
+
+    <h4>15.您曾经考取某个证书，最多考了几次才通过？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios15" id="15A" value="3" >A.一次
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios15" id="15B" value="2">B.两次
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios15" id="15C" value="1">C.三次
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios15" id="15D" value="1">D.三次以上
+	</label>
+    </div>
+
+    <h4>16.您通常采用那种方法备考？</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios16" id="16A" value="3" >A.自己购买相关的学习资料
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios16" id="16B" value="1">B.参加相应的培训
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios16" id="16C" value="2">C.努力学好学校的相关课程
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios16" id="16D" value="1">D.在前辈的推荐下自主学习
+	</label>
+    </div>
+
+    <h4>17.您以往考证准备的时间大约是</h4>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios17" id="17A" value="2" >A.一个月左右
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios17" id="17B" value="3">B.一至两个月
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios17" id="17C" value="3">C.两个月以上
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+		<input type="radio" name="optionsRadios17" id="17D" value="2">D.无法确定
+	</label>
+    </div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<input type="button" onclick="calculate_score()" value="提 交" />
+		</div>
+	</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/layer.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.slimscroll.min.js' %}"></script>
+<script>
+function calculate_score()
+{
+    var score = 0;
+    var type = document.getElementById("test");
+    for(var j = 1; j<=17; j++)
+    {
+            var item = document.getElementsByName('optionsRadios'+j.toString());
+            for (var i = 0; i < item.length; i++) {
+                if (item[i].checked == true) {
+                    score = score + parseInt(item[i].value)
+                }
+            }
+    }
+    var advice=" ";
+   	if( score>0 && score<45)
+   	{
+   		advice = "此证书对您来说有难度，不建议近期报考";
+   	}
+   	else if(score>=45&&score<73){
+   		advice = "此证书对您来说有些难度，建议多加复习，合理安排时间";
+   	}
+   	else{
+   		advice = "很好！！保持战斗力，您会成功！！";
+   	}
+   	score = score.toString();
+	layer.open({
+		type: 1,
+	    skin: "layui-layer-rim",
+	    area: ["400px", "200px"],
+	    title: "问卷结果",
+	    content: '<div class="text-center" style="margin-top:20px"><p>你的得分是' + score + '</p><p>'+advice+'</p></div>',
+	    btn:['确定'],
+	});
+}
+
+</script>
+
+
+{% endblock %}
+
